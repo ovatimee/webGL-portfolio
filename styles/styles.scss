@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Robert, Robo, Arial, sans-serif;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga", "kern";
+  text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+canvas {
+  height: 100vh;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+footer {
+
+  background-color: #000;
+  position: relative;
+  color: #fff;
+  transform: translate3d(0px, -300.33px, 0px);
+  overflow: hidden;
+  z-index: 1;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container {
+  padding: 1.5em 2em;
+}
+
+// header
+
+header .container .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: none;
+}
+
+.desktop-hide .close-icon {
+  display: none;
+}
+
+// Hero
+
+.hero .container .wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -150px;
+}
+
+// Works
+
+// Footer
+
+// media qeries
+@media screen and (min-width: 785px) {
+  header .container .wrapper {
+    justify-content: space-between;
+  }
+  .nav-list {
+    display: block;
+  }
+  .desktop-hide {
+    visibility: hidden;
+  }
+}
