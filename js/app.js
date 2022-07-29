@@ -5,8 +5,7 @@ const io = new IntersectionObserver(entries => {
    entries.forEach((entry) => {
     if(entry.intersectionRatio > 0) {
         const element = entry.target
-        element.style.transform = 'translate3d(0, +' + (10) + 'px ,0)'
-        element.style.backgroundColor = 'red'
+        // element.style.transform = 'translate3d(0, +' + (10) + 'px ,0)'
     }
    })
     
