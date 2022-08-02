@@ -1,4 +1,4 @@
-$easing: cubic-bezier(.694, 0, .335, 1);
+$easing: cubic-bezier(0.694, 0, 0.335, 1);
 
 * {
   margin: 0;
@@ -7,47 +7,54 @@ $easing: cubic-bezier(.694, 0, .335, 1);
 }
 
 body {
-  font-family: Robert, Robo, Arial, sans-serif;
   font-size: 16px;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "liga", "kern";
-  text-rendering: optimizelegibility;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  // overscroll-behavior-y: none;
 }
 
 img {
   max-width: 100%;
 }
 
+ul li {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+  display: inline-block;
+  cursor: pointer;
 }
-
+main,
 #container {
   top: 0;
   left: 0;
   position: fixed;
-}
-
-canvas {
   height: 100vh;
-}
-
-ul li {
-  list-style: none;
+  width: 100%;
+  canvas {
+    height: 100vh;
+  }
 }
 
 .site {
   color: #fff;
   top: 0;
+  left: 0;
   position: absolute;
+  width: 100%;
+}
+
+.item {
+  position: relative;
+
 }
 
 .container {
   padding: 1.5em 2em;
-  z-index: 1000;
+
 }
 
 //<<<<<<<<<< header >>>>>>>>>>>>
@@ -55,9 +62,9 @@ ul li {
 header .container .wrapper {
   display: flex;
   justify-content: space-between;
+  font-size: 1.2rem;
 
-  .logo,
-  .nav-menu {
+  .nav-icon {
     font-size: 1.2rem;
     font-weight: 600;
     position: fixed;
@@ -80,16 +87,15 @@ header .container .wrapper {
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Hero >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-.hero .container .wrapper {
+.hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -150px;
 }
 
 .hero .about {
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   p:nth-child(2) {
     transform: translate(30%, 0);
@@ -103,9 +109,11 @@ header .container .wrapper {
 
   .info {
     .description {
-      font-size: 3rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
+      a {
+        font-size: 3rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
     }
 
     .stack ul {
@@ -113,6 +121,7 @@ header .container .wrapper {
       font-size: 1.5rem;
       margin-bottom: 1rem;
       gap: 1.2rem;
+      font-weight: 200;
     }
   }
 }
@@ -209,33 +218,38 @@ form {
   }
 }
 
-.site {
+body {
   .logo {
     span:first-child {
-      transform: translate3d(120%, 0, 0);
+      transform: translate3d(20%, 0, 0);
       opacity: 0;
-      transition: transform 0.8s 0.2s, opacity 0.5s 0.2s;
+      transition: transform 0.9s 0.2s, opacity 0.6s 0.2s;
     }
     span:last-child {
-      transform: translate3d(-120%, 0, 0);
+      transform: translate3d(-18%, 0, 0);
       opacity: 0;
-      transition: transform 0.9s 0.5s, opacity 0.6s 0.3s;
+      transition: transform 0.9s 0.8s, opacity 0.9s 0.5s;
       margin-left: 3px;
       padding-left: 10px;
-
-      &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 1px;
-        background-color: #fff;
-        transform: scaleY(0);
-        transform-origin: 50% 0;
-        transition: transform .35s $easing;
-      }
     }
+    .logo-line {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 67px;
+      height: 100%;
+      width: 1px;
+      background-color: #fff;
+      transform: scaleY(0);
+      transform-origin: 50% 0;
+      transition: transform 0.35s $easing;
+    }
+  }
+
+  .nav-list > li a {
+    transform: translate3d(0, -50%, 0);
+    opacity: 0;
+    transition: transform 0.9s 0.8s, opacity 0.9s 0.5s;
   }
 
   &.ready {
@@ -245,12 +259,15 @@ form {
         transform: translate3d(0, 0, 0);
         opacity: 1;
       }
-      span:last-child:before {
+      .logo-line {
         transform: scaleY(1);
       }
     }
+    .nav-list > li a {
+      transform: scaleY(1);
+      opacity: 1;
+    }
   }
-
 }
 
 // media qeries
